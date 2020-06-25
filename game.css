@@ -1,0 +1,140 @@
+:root {
+  --arrow-svg: 
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64' enable-background='new 0 0 64 64'%3E%3Cpath d='M32,2C15.432,2,2,15.432,2,32s13.432,30,30,30s30-13.432,30-30S48.568,2,32,2z M37.143,30.305V49H26.857V30.305H16L32,15 l16,15.305H37.143z' fill='%23ffb300'/%3E%3C/svg%3E") 
+    no-repeat center center; 
+}
+
+body {  
+  background: rgb(52, 166, 251);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.background    { background: rgb(52, 166, 251);
+                 table-layout: fixed;
+                 border-spacing: 0;              
+                 position: relative;             }
+.background td { padding: 0;                     }
+.lava          { background: #f55;             }
+.wall          { background: #fff;             }
+
+.actor  { position: absolute;            }
+.coin   { background: rgb(241, 229, 89); }
+.player { background: hsl(0, 0%, 20%);   }
+
+.player::after {
+  position: absolute;
+  content: "";
+  transform: scale3d(-2, 2.1, 1) ;
+  padding: 5px;
+  bottom: -20px;
+  left: -10px;
+  z-index: 1;
+}
+
+.monster { background: purple;}
+
+.monster::after {
+  content: ":[";
+  /* transform: scale(100); */
+  font-size: 20px;
+}
+
+.monster-dead {
+  transition: height 1s;
+}
+
+.game {
+  overflow: hidden;
+  max-height: 100vh;
+  max-width: 100vw;
+  position: relative;
+}
+
+.lost .player {
+  background: rgb(160, 64, 64);
+}
+.won .player {
+  box-shadow: -4px -7px 8px white, 4px -7px 8px white;
+}
+
+.boss-sprite {
+  height: 150px;
+  /* background: lightgray; */
+  transform: scaleX(-1);
+  position: fixed;
+  z-index: 99; 
+  bottom: -40px;
+  right: 0;
+}
+
+.health-bar {
+  position: sticky;
+  left: 0;
+  top: 0;
+  color: #f00;
+  z-index: 99;
+}
+
+#controller-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: sticky;
+  left: 0;
+  bottom: 0em;
+  /* z-index: 99; */
+}
+
+#x-axis-group {
+  display: flex;
+  flex-direction: row;
+  width: 500px;
+  margin: 0 0 0 25px;
+}
+
+button.action {
+  width: 5em;
+  /* height: 5em; */
+  opacity: 70%;
+  background: #eee;
+  color: rgb(52, 166, 251);
+  outline: none;
+  border-width: 1px 0.5em 0.5em 1px;
+}
+
+button.action:active {
+  border-width: 0px 1px 1px 0px;
+}
+
+button.action::before {
+  display: block;
+  content: "";
+  height: 3em;
+  background: var(--arrow-svg);
+  pointer-events: none;
+}
+
+#x-axis-group * {
+  margin: 0 0 0 25px;
+}
+
+#arrowleft::before {
+  transform: rotate(-90deg);
+}
+
+#arrowright::before {
+  transform: rotate(90deg);
+}
+
+#arrowup {
+  margin: 0 2em 0 0;
+}
+
+.effect {
+  position: absolute;
+}
