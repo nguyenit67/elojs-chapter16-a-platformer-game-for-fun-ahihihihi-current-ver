@@ -105,6 +105,7 @@ button.action {
   outline: none;
   border-radius: 50%;
   border: 1em solid #fff;
+  border-width: 0px 1px 1px 0px;
 }
 
 button.action:active {
