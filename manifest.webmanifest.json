@@ -3,7 +3,7 @@
   "name": "BlackSquares",
   "icons": [
     {
-      "src": "/sqr.png",
+      "src": "https://raw.githubusercontent.com/nguyenit67/elojs-chapter16-a-platformer-game-for-fun-ahihihihi-current-ver/master/sqr.png",
       "sizes": "192x192",
       "type": "image/png"
     }
