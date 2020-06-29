@@ -100,8 +100,8 @@ body {
 button.action {
   width: 5.9em;
   height: 5.9em;
-  opacity: 80%;
-  background: #fff;
+  opacity: 90%;
+  background: #eee;
   outline: none;
   border-radius: 50%;
   border: 1em solid #fff;
