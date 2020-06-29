@@ -100,11 +100,9 @@ body {
 button.action {
   width: 5.9em;
   /* height: 5em; */
-  /* opacity: 70%; */
-  background: inherit;
-  color: rgb(52, 166, 251);
+  opacity: 70%;
+  background: #eee;
   outline: none;
-  border: none;
 }
 
 button.action:active {
@@ -114,7 +112,7 @@ button.action:active {
 button.action::before {
   display: block;
   content: "";
-  height: 3em;
+  height: 5em;
   background: var(--arrow-svg);
   pointer-events: none;
 }
