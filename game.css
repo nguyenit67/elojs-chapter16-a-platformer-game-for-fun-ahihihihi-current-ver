@@ -100,7 +100,7 @@ body {
 button.action {
   width: 5.9em;
   /* height: 5em; */
-  opacity: 70%;
+  opacity: 50%;
   background: #eee;
   outline: none;
 }
