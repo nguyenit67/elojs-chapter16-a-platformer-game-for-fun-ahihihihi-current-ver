@@ -116,7 +116,7 @@ button.action::before {
   background: var(--arrow-svg);
   pointer-events: none;
   border-radius: 50%;
-  border: 1px solid #fff;
+  border: 1em solid #fff;
 }
 
 #x-axis-group * {
