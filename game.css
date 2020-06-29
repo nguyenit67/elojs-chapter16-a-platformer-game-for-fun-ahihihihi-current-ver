@@ -101,10 +101,10 @@ button.action {
   width: 5.9em;
   /* height: 5em; */
   /* opacity: 70%; */
-  background: #eee;
+  background: inherit;
   color: rgb(52, 166, 251);
   outline: none;
-  border-width: 1px 0.5em 0.5em 1px;
+  border: none;
 }
 
 button.action:active {
