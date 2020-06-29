@@ -33,7 +33,7 @@ export class Monster extends Actor {
   collide(state) {
     let {level, actors, effects, status} = state;
     let player = state.player;
-    if (player.speed.y > 0) {
+    if (this.isKickedBy(player)) {
       actors = actors.map(actr =>  actr !== this ? actr : 
                             Coin.create(this.pos) );
 
@@ -47,5 +47,10 @@ export class Monster extends Actor {
       status = "lost";
     }
     return new State({level, actors, effects, status});
+  }
+
+  isKickedBy(player) {
+    // return this.pos.y > player.pos.y; 
+    return player.speed.y > 0;
   }
 }
