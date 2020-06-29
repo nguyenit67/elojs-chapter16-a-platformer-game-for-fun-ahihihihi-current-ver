@@ -101,8 +101,10 @@ button.action {
   width: 5.9em;
   /* height: 5em; */
   opacity: 90%;
-  background: blueviolet;
+  background: inherit;
   outline: none;
+  border-radius: 50%;
+  border: 1em solid #fff;
 }
 
 button.action:active {
@@ -115,8 +117,6 @@ button.action::before {
   height: 5em;
   background: var(--arrow-svg);
   pointer-events: none;
-  border-radius: 50%;
-  border: 1em solid #fff;
 }
 
 #x-axis-group * {
