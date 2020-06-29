@@ -115,6 +115,7 @@ button.action::before {
   display: block;
   content: "";
   height: 5em;
+  width: 5em;
   background: var(--arrow-svg);
   pointer-events: none;
 }
