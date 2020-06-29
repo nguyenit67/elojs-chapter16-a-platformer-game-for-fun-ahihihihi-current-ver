@@ -16,6 +16,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="HandheldFriendly" content="true">
  
+  <script>
+    document.addEventListener('touchstart', function(event){
+      event.preventDefault();
+    }, {passive: false});
+  </script>
 </head>
 
 <body>
