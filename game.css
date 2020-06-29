@@ -73,7 +73,7 @@ body {
 }
 
 .health-bar {
-  position: sticky;
+  position: fixed;
   left: 0;
   top: 0;
   color: #f00;
