@@ -50,7 +50,7 @@ export class Monster extends Actor {
   }
 
   isKickedBy(player) {
-    // return this.pos.y > player.pos.y; 
-    return player.speed.y > 0;
+    return player.pos.y < this.pos.y; 
+    // return player.speed.y > 0;
   }
 }
