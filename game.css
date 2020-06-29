@@ -101,7 +101,7 @@ button.action {
   width: 5.9em;
   /* height: 5em; */
   opacity: 90%;
-  background: #eee;
+  background: blueviolet;
   outline: none;
 }
 
@@ -115,6 +115,8 @@ button.action::before {
   height: 5em;
   background: var(--arrow-svg);
   pointer-events: none;
+  border-radius: 50%;
+  border: 1px solid #fff;
 }
 
 #x-axis-group * {
