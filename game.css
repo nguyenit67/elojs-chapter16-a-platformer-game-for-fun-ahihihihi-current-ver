@@ -99,7 +99,7 @@ body {
 
 button.action {
   width: 5.9em;
-  /* height: 5em; */
+  height: auto;
   opacity: 90%;
   background: blueviolet;
   outline: none;
