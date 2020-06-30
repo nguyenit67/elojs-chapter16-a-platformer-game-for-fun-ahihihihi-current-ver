@@ -36,6 +36,10 @@ body {
   z-index: 1;
 }
 
+.frog {
+  background: #0f0;
+}
+
 .monster { background: purple;}
 
 .monster::after {

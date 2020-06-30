@@ -15,6 +15,8 @@ export class FrogMon extends Monster {
     this.jump = jump;
   }
 
+  get type() { return "monster frog"; }
+
   update(timeStep, state) {
     let pos = this.pos;
     let delay = this.delay - timeStep;
