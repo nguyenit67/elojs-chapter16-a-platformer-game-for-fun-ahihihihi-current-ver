@@ -38,6 +38,7 @@ body {
 
 .frog {
   background: #0f0 !important; 
+  border-radius: 4px;
 }
 
 .monster { background: purple;}

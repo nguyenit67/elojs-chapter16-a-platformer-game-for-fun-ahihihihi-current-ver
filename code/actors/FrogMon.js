@@ -7,7 +7,7 @@ const jumpSpeed = 17;
 const timer = 0.1;
 
 export class FrogMon extends Monster {
-  size = new Vec(2, 1);
+  size = new Vec(1.5, 1);
 
   constructor(pos, speed, delay, jump) {
     super(pos, speed);
