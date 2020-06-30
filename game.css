@@ -41,10 +41,18 @@ body {
   border-radius: 4px;
 }
 
+.frog::before {
+  left: 0;
+  top: 0;
+  position: absolute;
+  content: ".-." !important;
+  font-size: 20px;
+}
+
 .monster { background: purple;}
 
-.monster::after {
-  content: ".";
+.monster::before {
+  content: ":[";
   /* transform: scale(100); */
   font-size: 20px;
 }

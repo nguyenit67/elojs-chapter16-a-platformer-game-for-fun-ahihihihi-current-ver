@@ -4,7 +4,7 @@ import {Vec} from "~/code/game/game";
 
 const gravity = Monster.gravity;
 const jumpSpeed = 17;
-const timer = 0.1;
+const timer = 1;
 
 export class FrogMon extends Monster {
   size = new Vec(1.5, 1);
@@ -15,7 +15,7 @@ export class FrogMon extends Monster {
     this.jump = jump;
   }
 
-  get type() { return "monster frog"; }
+  get type() { return "frog"; }
 
   update(timeStep, state) {
     let pos = this.pos;
@@ -43,7 +43,7 @@ export class FrogMon extends Monster {
     }
 
     let underPos = new Vec( pos.x, pos.y + this.size.y );
-    if (state.level.touches(underPos, new Vec(1, 1), "wall") ) {
+    if (state.level.touches(underPos, Vec.BASIC_SQUARE, "wall") ) {
       delay = timer;
     } else {
       delay = 0;
@@ -54,4 +54,5 @@ export class FrogMon extends Monster {
   static create(pos) {
     return new FrogMon(pos, new Vec(10, 0), 0);
   }
+
 }
