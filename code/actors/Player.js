@@ -3,8 +3,8 @@ import {Vec} from "~/code/game/game";
 import {State} from "~/code/game/State";
 
 const playerXSpeed = 10;
-const gravity = 30;
 const jumpSpeed = 17;
+const gravity = Actor.gravity;
 
 export class Player extends Actor {
   size = new Vec(0.8, 1.5);

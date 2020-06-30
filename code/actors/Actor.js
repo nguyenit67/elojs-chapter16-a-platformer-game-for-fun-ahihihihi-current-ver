@@ -1,7 +1,7 @@
 import {NotImplementedError} from "~/code/errors";
 
 export class Actor {
-  static Status = {};
+  static gravity = 30;
 
   size = null;
 

@@ -41,8 +41,6 @@ export class Monster extends Actor {
                             new Player(player.pos, new Vec(player.speed.x, -9) ));
       effects.push(EffectAdapter.Monster.Dead
                       .create(this, state.level));
-                
-      
     } else {
       status = "lost";
     }
