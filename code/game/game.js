@@ -59,14 +59,20 @@ runLevel = (level, Display) => {
   let state = State.start(level);
   let ending = 1;
   let running = true;
+
+  function detectPause(event) {
+    if (event.key === "Escape") {
+      running ^= 1;
+    }
+  }
+  window.addEventListener("keydown", detectPause);
   return new Promise(resolve => {
     runAnimation(time => {
-      running ^= arrowKeys.Escape;
       if (running) {
         state = state.update(time, arrowKeys);
         display.syncState(state);
       }
-      if (state.status == "playing") {
+      if (state.status === "playing" || !running) {
         return true;
       } else if (ending > 0) {
         ending -= time;
@@ -142,7 +148,7 @@ function trackTouchAndKeys(keys) {
 }
 
 const arrowKeys =
-  trackTouchAndKeys(["ArrowLeft", "ArrowRight", "ArrowUp", "Escape"]);
+  trackTouchAndKeys(["ArrowLeft", "ArrowRight", "ArrowUp"]);
 
 exports.runGame = async (plans, Display) => {
   let health = HEALTH;
