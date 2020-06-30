@@ -172,12 +172,6 @@ exports.runGame = async (plans, Display) => {
   alert("You've won! 🏆🤩🥳🎉🎉🎉");
 }
 
-window.addEventListener("keydown", event => {
-  if (event.key === "q") {    
-    alert("Game Paused. Continue?");
-  }
-});
-
 // exports.State = class extends State{
 //   constructor() {
 //     super(...arguments);
