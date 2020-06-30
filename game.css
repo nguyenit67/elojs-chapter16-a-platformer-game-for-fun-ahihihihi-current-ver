@@ -37,7 +37,7 @@ body {
 }
 
 .frog {
-  background: #0f0;
+  background: #0f0 !important; 
 }
 
 .monster { background: purple;}
