@@ -16,7 +16,6 @@ export class Vec {
   }
 }
 
-
 function runAnimation(frameFunc) {
   let lastTime = null;
   function frame(time) {

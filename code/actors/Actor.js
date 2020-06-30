@@ -2,7 +2,7 @@ import {NotImplementedError} from "~/code/errors";
 import {Vec} from "~/code/game/game";
 
 export class Actor {
-  static BASIC_SQUARE = new Vec(1, 1);
+  // static BASIC_SQUARE = new Vec(1, 1);
 
   static gravity = 30;
 

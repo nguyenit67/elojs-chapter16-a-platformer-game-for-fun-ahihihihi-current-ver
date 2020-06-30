@@ -1,18 +1,18 @@
 import {Monster} from "./Monster";
 import {Vec} from "~/code/game/game";
 
-const BASIC_SQUARE = Monster.BASIC_SQUARE;
 
 const gravity = Monster.gravity;
-const jumpSpeed = 5;
-const timer = 1;
+const jumpSpeed = 17;
+const timer = 0.1;
 
 export class FrogMon extends Monster {
   size = new Vec(2, 1);
 
-  constructor(pos, speed, delay) {
+  constructor(pos, speed, delay, jump) {
     super(pos, speed);
     this.delay = delay;
+    this.jump = jump;
   }
 
   update(timeStep, state) {
@@ -41,7 +41,7 @@ export class FrogMon extends Monster {
     }
 
     let underPos = new Vec( pos.x, pos.y + this.size.y );
-    if (state.level.touches(underPos, BASIC_SQUARE, "wall") ) {
+    if (state.level.touches(underPos, new Vec(1, 1), "wall") ) {
       delay = timer;
     } else {
       delay = 0;
@@ -50,6 +50,6 @@ export class FrogMon extends Monster {
   }
 
   static create(pos) {
-    return new FrogMon(pos, new Vec(10, 0), timer);
+    return new FrogMon(pos, new Vec(10, 0), 0);
   }
 }
