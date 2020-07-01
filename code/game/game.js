@@ -93,7 +93,6 @@ runLevel = (level, Display) => {
   let ending = 1;
   let running = true;
 
-
   return new Promise(resolve => {
     function frameFunc(time) {
       console.log(time);

@@ -3,6 +3,7 @@ import {Lava} from "~/code/actors/Lava";
 import {Coin} from "~/code/actors/Coin";
 import {Monster} from "~/code/actors/Monster";
 import {FrogMon} from "~/code/actors/FrogMon";
+import {CopyCat} from "~/code/actors/CopyCat";
 import {Vec} from "./game";
 
 export const levelChars = {
@@ -15,7 +16,8 @@ export const levelChars = {
   "|": Lava,
   "v": Lava,
   "M": Monster,
-  "F": FrogMon
+  "F": FrogMon,
+  "C": CopyCat
 };
 
 export class Level {

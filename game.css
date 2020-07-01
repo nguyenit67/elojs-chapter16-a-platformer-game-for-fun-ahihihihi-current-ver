@@ -36,6 +36,14 @@ body {
   z-index: 1;
 }
 
+.copycat {
+  background: #ff7f00;
+}
+
+.copycat::before {
+  content: "(=^･ω･^=)";
+}
+
 .frog {
   background: #0f0 !important; 
   border-radius: 4px;
