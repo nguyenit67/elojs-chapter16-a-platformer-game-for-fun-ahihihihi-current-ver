@@ -9,10 +9,9 @@ const timer = 1;
 export class FrogMon extends Monster {
   size = new Vec(1.5, 1);
 
-  constructor(pos, speed, delay, jump) {
+  constructor(pos, speed, delay) {
     super(pos, speed);
     this.delay = delay;
-    this.jump = jump;
   }
 
   get type() { return "frog"; }
@@ -43,7 +42,7 @@ export class FrogMon extends Monster {
     }
 
     let underPos = new Vec( pos.x, pos.y + this.size.y );
-    if (state.level.touches(underPos, Vec.BASIC_SQUARE, "wall") ) {
+    if (state.level.touches(underPos, Vec.UNDER_RECT, "wall") ) {
       delay = timer;
     } else {
       delay = 0;

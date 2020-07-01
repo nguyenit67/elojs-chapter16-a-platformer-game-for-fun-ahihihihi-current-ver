@@ -5,7 +5,7 @@ import {Level} from "./Level";
 const HEALTH = 10;
 
 export class Vec {
-  static BASIC_SQUARE = new Vec(1, 0.1);
+  static UNDER_RECT = new Vec(1, 0.1);
 
   constructor(x, y) {
     this.x = x; this.y = y;
