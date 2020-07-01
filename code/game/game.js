@@ -96,6 +96,7 @@ runLevel = (level, Display) => {
 
   return new Promise(resolve => {
     function frameFunc(time) {
+      console.log(time);
       if (!running) {
         return false;
       }
