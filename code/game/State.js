@@ -20,7 +20,7 @@ export class State {
   }
 
   get player() {
-    return this.actors.find(a => (a instanceof Player));
+    return this.actors.find(a => (a.type === "player"));
   }
 
   update(time, keys) {
