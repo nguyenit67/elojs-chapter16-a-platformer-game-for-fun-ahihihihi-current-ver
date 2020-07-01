@@ -4,7 +4,7 @@ import {Vec} from "~/code/game/game";
 
 const gravity = Monster.gravity;
 const jumpSpeed = 17;
-const timer = 1;
+const timer = 0.5;
 
 export class FrogMon extends Monster {
   size = new Vec(1.5, 1);
