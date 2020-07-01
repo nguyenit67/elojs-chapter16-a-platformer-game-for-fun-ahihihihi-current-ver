@@ -93,19 +93,15 @@ runLevel = (level, Display) => {
   let ending = 1;
   let running = true;
 
-  window.addEventListener("keydown", event => {
-    if (event.key === "Escape") {
-      running ^= true;
-    }
-  });
 
   return new Promise(resolve => {
     function frameFunc(time) {
-      if (running) {
-        state = state.update(time, arrowKeys);
-        display.syncState(state);
+      if (!running) {
+        return false;
       }
-      if (state.status === "playing" || !running) {
+      state = state.update(time, arrowKeys);
+      display.syncState(state);
+      if (state.status === "playing") {
         return true;
       } else if (ending > 0) {
         ending -= time;
@@ -116,7 +112,15 @@ runLevel = (level, Display) => {
         return false;
       }
     }
-    console.log("Send Bass");
+    window.addEventListener("keydown", event => {
+      if (event.key === "Escape") {
+        if (!running) {
+          runAnimation(frameFunc);
+        } 
+        running ^= true;
+      }
+    });
+    console.log("Send Moreeeeeee Basssssssssssss");
     runAnimation(frameFunc);
   });
 }
