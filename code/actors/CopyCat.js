@@ -2,7 +2,7 @@ import {Monster} from "./Monster";
 import {Player} from "./Player";
 import {Vec} from "~/code/game/game";
 
-export class CopyCat extends Player {
+export class CopyCat {
 
   get type() { return "copycat"; }
 
@@ -10,3 +10,5 @@ export class CopyCat extends Player {
     return Monster.prototype.collide.call(this, state);
   }
 }
+
+CopyCat.prototype = new Player();
