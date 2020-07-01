@@ -68,7 +68,6 @@ runLevel = (level, Display) => {
 
   return new Promise(resolve => {
     runAnimation(time => {
-      console.log(time);
       if (running) {
         state = state.update(time, arrowKeys);
         display.syncState(state);
