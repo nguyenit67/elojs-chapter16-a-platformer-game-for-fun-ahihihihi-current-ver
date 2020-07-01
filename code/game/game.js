@@ -60,12 +60,12 @@ runLevel = (level, Display) => {
   let ending = 1;
   let running = true;
 
-  function detectPause(event) {
+  window.addEventListener("keydown", event => {
     if (event.key === "Escape") {
-      running ^= 1;
+      running ^= true;
     }
-  }
-  window.addEventListener("keydown", detectPause);
+  });
+
   return new Promise(resolve => {
     runAnimation(time => {
       if (running) {
