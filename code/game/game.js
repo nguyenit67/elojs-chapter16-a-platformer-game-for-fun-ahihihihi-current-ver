@@ -53,7 +53,7 @@ function runLevel(level, Display) {
   });
 }
 
-const oldRunLevel = runLevel;
+// simple lazy PAUSE feature v1
 runLevel = (level, Display) => {
   let display = new Display(document.body, level);
   let state = State.start(level);
@@ -83,6 +83,41 @@ runLevel = (level, Display) => {
         return false;
       }
     });
+  });
+}
+
+// complex professional PAUSE feature v2
+runLevel = (level, Display) => {
+  let display = new Display(document.body, level);
+  let state = State.start(level);
+  let ending = 1;
+  let running = true;
+
+  window.addEventListener("keydown", event => {
+    if (event.key === "Escape") {
+      running ^= true;
+    }
+  });
+
+  return new Promise(resolve => {
+    function frameFunc(time) {
+      if (running) {
+        state = state.update(time, arrowKeys);
+        display.syncState(state);
+      }
+      if (state.status === "playing" || !running) {
+        return true;
+      } else if (ending > 0) {
+        ending -= time;
+        return true;
+      } else {
+        display.clear();
+        resolve(state.status);
+        return false;
+      }
+    }
+    console.log("Send Bass");
+    runAnimation(frameFunc);
   });
 }
 
