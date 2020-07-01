@@ -2,13 +2,11 @@ import {Monster} from "./Monster";
 import {Player} from "./Player";
 import {Vec} from "~/code/game/game";
 
-export class CopyCat {
+export class CopyCat extends Monster {
 
   get type() { return "copycat"; }
 
-  collide(state) {
-    return Monster.prototype.collide.call(this, state);
+  update() {
+    return Player.prototype.collide.apply(this, arguments);
   }
 }
-
-CopyCat.prototype = new Player();
