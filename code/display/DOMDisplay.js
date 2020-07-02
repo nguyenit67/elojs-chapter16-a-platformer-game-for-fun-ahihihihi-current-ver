@@ -2,7 +2,7 @@ import {Vec} from "~/code/game/game";
 
 export const scale = 20;
 
-function elt(tagName, attrs, ...children) {
+function elt(tagName, attrs = {}, ...children) {
   let dom = document.createElement(tagName);
   for(let name in attrs) {
     dom.setAttribute(name, attrs[name]);
