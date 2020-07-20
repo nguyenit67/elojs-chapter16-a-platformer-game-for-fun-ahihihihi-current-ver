@@ -189,7 +189,7 @@ function trackTouchAndKeys(keys) {
 const arrowKeys =
   trackTouchAndKeys(["ArrowLeft", "ArrowRight", "ArrowUp"]);
 
-exports.runGame = async (plans, Display) => {
+let domrunGame = async (plans, Display) => {
   let health = HEALTH;
   healthBar.textContent = healthStr(health);
   document.body.appendChild(healthBar);
