@@ -1,6 +1,11 @@
 const otherSprites = new Image();
 otherSprites.src = "";
-const playerXOverlap = 4;
+
+function flipHorizontally(context, xAxis) {
+  context.translate(xAxis, 0);
+  context.scale(-1, 1);
+  context.translate(-xAxis, 0);
+}
 
 export class CanvasDisplay {
   constructor(parent, level)  {
@@ -82,10 +87,45 @@ export class CanvasDisplay {
     } 
   }
   drawPlayer(player, x, y, width, height) {
+    const playerXOverlap = 4;
+    width += playerXOverlap * 2;
+    x -= playerXOverlap;
+    if (player.speed.x !== 0) {
+      this.flipPlayer = player.speed.x < 0;
+    }
+    let tile = 8;
+    if (player.speed.y !== 0) {
+      tile = 9;
+    } else if (player.speed.x !== 0) {
+      tile = Math.floor(Date.now() / 60) % 8;
+    }
 
+    this.cx.save();
+    if (this.flipPlayer) {
+      flipHorizontally(this.cx, x + width / 2)
+    }
+    let tileX = tile * width;
+    this.cx.drawImage(playerSprite, 
+                      tileX, 0, width, height,
+                      x,     y, width, height);
+    this.cx.restore();
   }
-  drawActors(actors) {
+  drawActors(actorList) {
+    for(const actor of actorList) {
+      let x = (actor.pos.x - this.viewport.left)  * scale;
+      let y = (actor.pos.y - this.viewport.top) * scale;
+      let width = actor.size.x * scale;
+      let height = actor.size.y * scale;
 
+      if (actor.type === "player") {
+        this.drawPlayer(actor, x, y, width, height);
+      } else {
+        let tileX = actor.type === "coin" ? 2 : 1;
+        this.cx.drawImage(otherSprites, 
+                          tileX, 0, width, height, 
+                          x,     y, width, height);
+      }
+    }
   }
   
 }
