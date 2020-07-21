@@ -12,6 +12,15 @@ function flipHorizontally(context, xAxis) {
   context.translate(-xAxis, 0);
 }
 
+const invCanvas = document.createElement("canvas");
+const invCanvasCtx = invCanvas.getContext("2d");
+invCanvas.width = 24;
+invCanvas.height = 30;
+invCanvasCtx.scale(-1, 1);
+
+// playerSprite.style.position = "fixed";
+// document.body.appendChild(invCanvas);
+
 export class CanvasDisplay {
   constructor(parent, level)  {
     this.canvas = document.createElement("canvas");
@@ -64,6 +73,7 @@ export class CanvasDisplay {
                 vp.height;
     }
   }
+
   clearDisplay(status) {
     if (status === "won") {
       this.cx.fillStyle = "rgb(68, 191, 255)";
@@ -75,6 +85,7 @@ export class CanvasDisplay {
     this.cx.fillRect(0, 0,
                     this.canvas.width, this.canvas.height);
   }
+
   drawBackground(level) {
     let {left, top, width, height} = this.viewport;
     let xStart = Math.floor(left);
@@ -95,8 +106,11 @@ export class CanvasDisplay {
       }
     } 
   }
+
   drawPlayer(player, x, y, width, height) {
     const playerXOverlap = 4;
+    const tileCount = 10;
+
     width += playerXOverlap * 2;
     x -= playerXOverlap;
     if (player.speed.x !== 0) {
@@ -109,16 +123,26 @@ export class CanvasDisplay {
       tile = Math.floor(Date.now() / 24) % 8;
     }
 
-    this.cx.save();
-    if (this.flipPlayer) {
-      flipHorizontally(this.cx, x + width / 2)
-    }
+    // this.cx.save();
     let tileX = tile * width;
-    this.cx.drawImage(playerSprite, 
-                      tileX, 0, width, height,
-                      x,     y, width, height);
-    this.cx.restore();
+    if (this.flipPlayer) {
+      // flipHorizontally(this.cx, x + width / 2);
+
+      invCanvasCtx.clearRect(-width, 0, width, height);
+      invCanvasCtx.drawImage(playerSprite, 
+                              tileX, 0, width, height,
+                             -width, 0, width, height);
+      this.cx.drawImage(invCanvas, 
+                        // 0, 0, width, height,
+                        x, y, width, height);
+    } else {
+      this.cx.drawImage(playerSprite, 
+                        tileX, 0, width, height,
+                        x,     y, width, height);      
+    }
+    // this.cx.restore();
   }
+
   drawActors(actorList) {
     for(const actor of actorList) {
       let x = (actor.pos.x - this.viewport.left)  * SCALE;
@@ -136,5 +160,4 @@ export class CanvasDisplay {
       }
     }
   }
-  
 }
